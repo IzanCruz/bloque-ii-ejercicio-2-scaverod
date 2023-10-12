@@ -33,7 +33,6 @@ public class LinkedBinaryTree<E> extends DrawableTree<E> {
     private int size;
 
 
-
     /**
      * Constructs an empty binary tree.
      */
@@ -297,9 +296,19 @@ public class LinkedBinaryTree<E> extends DrawableTree<E> {
         return list.iterator();
     }
 
-    // Izquierda, Raiz, Derecha
-    private void inOrder(BTNode<E> node, ArrayList<Position<E>> list){
-        if (node != null){
+    /**
+     * un nodo es visitado
+     * después de su hijo izquierdo pero
+     * antes que su hijo derecho
+     *
+     * @param node el nodo en el que comienzo
+     * @param list la lista con el recorrido de los nodos.
+     */
+    private void inOrder(BTNode<E> node, ArrayList<Position<E>> list) {
+        // primero me voy a ir lo más a la izquierda posible
+        // visito el nodo (no tiene hijos)
+        // me voy a ir a la derecha
+        if (node != null) {
             if (node.getLeft() != null) {
                 inOrder(node.getLeft(), list);
             }
@@ -308,7 +317,6 @@ public class LinkedBinaryTree<E> extends DrawableTree<E> {
                 inOrder(node.getRight(), list);
             }
         }
-
     }
 
     /**
