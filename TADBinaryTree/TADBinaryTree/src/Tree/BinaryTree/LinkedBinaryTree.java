@@ -297,7 +297,18 @@ public class LinkedBinaryTree<E> extends DrawableTree<E> {
         return list.iterator();
     }
 
-    private void inOrder(BTNode<E> node, ArrayList<Position<E>> list) {
+    // Izquierda, Raiz, Derecha
+    private void inOrder(BTNode<E> node, ArrayList<Position<E>> list){
+        if (node != null){
+            if (node.getLeft() != null) {
+                inOrder(node.getLeft(), list);
+            }
+            list.add(node);
+            if (node.getRight() != null) {
+                inOrder(node.getRight(), list);
+            }
+        }
+
     }
 
     /**
